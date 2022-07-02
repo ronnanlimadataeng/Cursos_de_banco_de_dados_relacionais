@@ -1,0 +1,30 @@
+# O INNER JOIN é a interseção entre duas tabelas, ou seja, na consulta aparecerá todas as informações de um determinado campo da tabela A que também foi encontrado na tabela B.
+SELECT <CAMPOS>
+FROM TABELA_A
+INNER JOIN TABELA_B
+ON TABELA_A.CAMPO = TABELA_B.CAMPO
+
+# O LEFT JOIN baseia-se nas informações da tabela declarada à esquerda do comando ao se juntar com outra tabela.
+SELECT <CAMPOS>
+FROM TABELA_A
+LEFT JOIN TABELA_B
+ON TABELA_A.CAMPO = TABELA_B.CAMPO
+
+# O RIGTH JOIN baseia-se nas informações da tabela declarada à direita do comando ao se juntar com outra tabela.
+SELECT <CAMPOS>
+FROM TABELA_A
+RIGHT JOIN TABELA_B
+ON TABELA_A.CAMPO = TABELA_B.CAMPO
+
+# Full Outer Join, Esse comando apresenta a união entre duas tabelas. Incluindo a interseção.
+SELECT <CAMPOS>
+FROM TABELA_A
+FULL OUTER JOIN TABELA_B
+ON TABELA_A.CAMPO = TABELA_B.CAMPO
+
+# Full Outer Join, Esse comando apresenta a união entre duas tabelas. Excluindo a interseção.
+SELECT <CAMPOS>
+FROM TABELA_A
+INNER JOIN TABELA_B
+ON TABELA_A.CAMPO = TABELA_B.CAMPO
+WHERE TABELA_A.CAMPO IS NULL OR TABELA_B.CAMPO IS NULL

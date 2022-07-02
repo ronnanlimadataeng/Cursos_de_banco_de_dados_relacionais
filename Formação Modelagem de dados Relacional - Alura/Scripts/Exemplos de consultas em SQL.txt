@@ -1,0 +1,44 @@
+Consultas que podem ser executadas utilizando o banco de dados acima.
+
+# 1 uma tabela com os romances que custam menos de 48 reais.
+SELECT * FROM livros
+WHERE categoria = 'Romance' and preco < 48;
+
+# 2 poesias que não são nem de Luís Vaz de Camões e nem de Gabriel Pedroza.
+SELECT * FROM livros
+WHERE categoria = 'Poesia' AND NOT (autoria = 'Luís Vaz de Camões' OR autoria = 'Gabriel Pedrosa'); 
+
+# 3 Deletando um livro que não será mais vendido
+DELETE FROM livros 
+WHERE id_livro = 8;
+
+# 4 reajuste do preço do livro
+UPDATE livros SET preco = 0.9 * preco;
+
+# 5 todos os livros com autores terminados com 'Assis'
+SELECT id_livro, nome_livro, autoria, preco
+FROM livros
+WHERE autoria LIKE '%Assis';
+
+
+# 6 identificar o nome dos livros que foram vendidos na tabela VENDAS podemos construir o código abaixo:
+SELECT livros.nome_livro,vendas.qtd_vendida
+FROM livros, vendas
+WHERE vendas.id_livro = livros.id_livro;
+
+# 7 então, a consulta anterior pode ser reescrita para, usando as:
+SELECT A.nome_livro, B.qtd_vendida
+FROM livros AS  A,  vendas AS  B
+WHERE B.id_livro = A.id_livro;
+
+# 8 então, a consulta anterior pode ser reescrita para, reduzindo a mais ainda:
+SELECT A.nome_livro,B.qtd_vendida
+FROM livros  A,  vendas   B
+WHERE B.id_livro = A.id_livro;
+
+# 9 a maior venda feita no Clube do Livro
+SELECT MAX(qtd_vendida) FROM vendas;
+
+# 10 a maior venda por código de pessoa vendedora
+SELECT MAX(qtd_vendida) FROM vendas
+GROUP BY(id_vendedor);
