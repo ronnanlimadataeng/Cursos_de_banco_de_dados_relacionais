@@ -1,0 +1,8 @@
+sqlcmd -? #abrir todos os comandos
+sqlcmd -S ronnan-lima\sqlserver2019 -U sa #efetuar login e utilizar comandos sql server
+
+1> CREATE DATABASE Teste1 #Criando Database dentro do sql server
+2> GO
+
+1> sp_databases #consultar os banco de dados existes
+2> GO
